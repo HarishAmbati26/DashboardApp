@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Advanced from './components/advanced/advanced';
+import Beginner from './components/beginner/beginner';
+import Home from './components/home/home';
+import Intermediate from './components/intermediate/intermediate';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Trying to test rebase
-          Edited <code>src/App.js</code> and saved to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home />}>
+          <Route path="beginner" element={<Beginner />} />
+          <Route path="intermediate" element={<Intermediate />} />
+          <Route path="advanced" element={<Advanced />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
