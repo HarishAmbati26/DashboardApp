@@ -1,0 +1,34 @@
+.Home-header {
+    background-color: #282c34;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.Home-level {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.Home-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+}
+
+.Home-select {
+    background-color: #FFF;
+}
+
+.Home-button a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+}
