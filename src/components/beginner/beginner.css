@@ -2,3 +2,8 @@
     text-align: center;
     border-top: 3px solid #000;
 }
+
+.Beginner-content {
+    padding: 0rem 2rem;
+    text-align: justify;
+}
