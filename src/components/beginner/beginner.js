@@ -1,23 +1,27 @@
+import { useEffect, useState } from 'react';
+import { getAllQuestions } from '../../service/questionBank';
 import './beginner.css';
 
 function Beginner() {
 
-    const data = [{
+    const [beginnerData, setBeginnerData] = useState([{
         "id": 1,
         "Question": "What is a react?",
         "Answer": "React is a JavaScript library which used to build web applications"
-    }, {
-        "id": 2,
-        "Question": "What is a react?",
-        "Answer": "React is a JavaScript library which used to build web applications"
-    }];
+    }])
+
+    useEffect(() => {
+        getAllQuestions().then(res => {
+            setBeginnerData(res.data);
+        });
+    }, []);
 
     return (
         <div className='Beginner-main'>
             <h2>Welcome to Beginner Level Questions</h2>
             <div className='Beginner-content'>
                 {
-                    data.map((ques, i) => {
+                    beginnerData?.map((ques, i) => {
                         const key = "Question-" + i + 1;
                         return (
                             <div key={key}>

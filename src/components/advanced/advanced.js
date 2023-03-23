@@ -1,23 +1,27 @@
+import { useEffect, useState } from 'react';
+import { getAllQuestions } from '../../service/questionBank';
 import './advanced.css';
 
 function Advanced() {
 
-    const data = [{
+    const [advancedData, setAdvancedData] = useState([{
         "id": 1,
         "Question": "What is a react?",
         "Answer": "React is a JavaScript library which used to build web applications"
-    }, {
-        "id": 2,
-        "Question": "What is a react?",
-        "Answer": "React is a JavaScript library which used to build web applications"
-    }];
+    }])
+
+    useEffect(() => {
+        getAllQuestions().then(res => {
+            setAdvancedData(res.data);
+        });
+    }, []);
 
     return (
         <div className='Advanced-main'>
             <h2>Welcome to Advanced Level Questions</h2>
             <div className='Beginner-content'>
                 {
-                    data.map((ques, i) => {
+                    advancedData.map((ques, i) => {
                         const key = "Question-" + i + 1;
                         return (
                             <div key={key}>

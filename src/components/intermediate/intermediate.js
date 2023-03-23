@@ -1,23 +1,27 @@
+import { useEffect, useState } from 'react';
+import { getAllQuestions } from '../../service/questionBank';
 import './intermediate.css';
 
 function Intermediate() {
 
-    const data = [{
+    const [intermediateData, setIntermediateData] = useState([{
         "id": 1,
         "Question": "What is a react?",
         "Answer": "React is a JavaScript library which used to build web applications"
-    }, {
-        "id": 2,
-        "Question": "What is a react?",
-        "Answer": "React is a JavaScript library which used to build web applications"
-    }];
+    }])
+
+    useEffect(() => {
+        getAllQuestions().then(res => {
+            setIntermediateData(res.data);
+        });
+    }, []);
 
     return (
         <div className='Intermediate-main'>
             <h2>Welcome to Intermediate Level Questions</h2>
             <div className='Beginner-content'>
                 {
-                    data.map((ques, i) => {
+                    intermediateData.map((ques, i) => {
                         const key = "Question-" + i + 1;
                         return (
                             <div key={key}>
