@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAllQuestions } from '../../service/questionBank';
+import { getAllQuestionsByLevel } from '../../service/questionBank';
 import './intermediate.css';
 
 function Intermediate() {
@@ -11,7 +11,7 @@ function Intermediate() {
     }])
 
     useEffect(() => {
-        getAllQuestions().then(res => {
+        getAllQuestionsByLevel('Intermediate').then(res => {
             setIntermediateData(res.data);
         });
     }, []);

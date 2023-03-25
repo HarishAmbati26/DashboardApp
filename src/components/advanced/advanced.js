@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAllQuestions } from '../../service/questionBank';
+import { getAllQuestionsByLevel } from '../../service/questionBank';
 import './advanced.css';
 
 function Advanced() {
@@ -11,7 +11,7 @@ function Advanced() {
     }])
 
     useEffect(() => {
-        getAllQuestions().then(res => {
+        getAllQuestionsByLevel('Advanced').then(res => {
             setAdvancedData(res.data);
         });
     }, []);

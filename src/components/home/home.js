@@ -8,7 +8,7 @@ function Home() {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.pathname == '/') {
+        if (location.pathname === '/') {
             navigate('/beginner');
         }
     }, [])

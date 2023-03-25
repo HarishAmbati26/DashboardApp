@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAllQuestions } from '../../service/questionBank';
+import { getAllQuestionsByLevel } from '../../service/questionBank';
 import './beginner.css';
 
 function Beginner() {
@@ -11,7 +11,7 @@ function Beginner() {
     }])
 
     useEffect(() => {
-        getAllQuestions().then(res => {
+        getAllQuestionsByLevel('Beginner').then(res => {
             setBeginnerData(res.data);
         });
     }, []);
